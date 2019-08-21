@@ -2,16 +2,24 @@
 $APPLICATION->SetTitle("Инфочекер");
 
 $APPLICATION->IncludeComponent(
-	"bitrix:news", 
-	"infocheker", 
+	"bitrix:news",
+	"infochecker",
 	array(
-		"COMPONENT_TEMPLATE" => "infocheker",
+		"COMPONENT_TEMPLATE" => "infochecker",
 		"IBLOCK_TYPE" => "articles",
 		"IBLOCK_ID" => "2",
 		"NEWS_COUNT" => "20",
 		"USE_SEARCH" => "N",
 		"USE_RSS" => "N",
 		"USE_RATING" => "N",
+		//отзывы
+		"USE_REVIEW" => "Y",
+		"PATH_TO_SMILE" => "/bitrix/images/forum/smile/",
+		"FORUM_ID" => "1",
+		"URL_TEMPLATES_READ" => "/communication/forum/forum#FORUM_ID#/topic#TOPIC_ID#/",
+		"SHOW_LINK_TO_FORUM" => "N",
+		"POST_FIRST_MESSAGE" => "N",
+
 		"USE_CATEGORIES" => "N",
 		"USE_FILTER" => "N",
 		"SORT_BY1" => "ACTIVE_FROM",
@@ -63,13 +71,12 @@ $APPLICATION->IncludeComponent(
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "f j, Y",
 		"DETAIL_FIELD_CODE" => array(
-			0 => "",
-			1 => "PREVIEW_TEXT",
-			2 => "PREVIEW_PICTURE",
-			3 => "DETAIL_TEXT",
-			4 => "DETAIL_PICTURE",
-			5 => "DATE_ACTIVE_FROM",
-			6 => "",
+			0 => "PREVIEW_TEXT",
+			1 => "PREVIEW_PICTURE",
+			2 => "DETAIL_TEXT",
+			3 => "DETAIL_PICTURE",
+			4 => "DATE_ACTIVE_FROM",
+			5 => "",
 		),
 		"DETAIL_PROPERTY_CODE" => array(
 			0 => "AUTHOR",
@@ -97,11 +104,11 @@ $APPLICATION->IncludeComponent(
 		"SET_STATUS_404" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => "",
-		"SEF_FOLDER" => "/",
+		"SEF_FOLDER" => "/articles/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
-			"section" => "#SECTION_CODE#/",
-			"detail" => "#SECTION_CODE#/#ELEMENT_CODE#/",
+			"section" => "#SECTION_CODE_PATH#/",
+			"detail" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
 		)
 	),
 	false
